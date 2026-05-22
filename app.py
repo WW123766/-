@@ -246,7 +246,6 @@ def get_all_models(input_dim):
     models = {
         "RandomForest": ModelWrapper("RandomForest", RandomForestClassifier(n_estimators=100, random_state=42)),
         "XGBoost": ModelWrapper("XGBoost", xgb.XGBClassifier(n_estimators=100, random_state=42, eval_metric='mlogloss')),
-        "LightGBM": ModelWrapper("LightGBM", lgb.LGBMClassifier(n_estimators=100, random_state=42, verbose=-1)),
         "CatBoost": ModelWrapper("CatBoost", cb.CatBoostClassifier(n_estimators=100, random_state=42, verbose=0)),
         "SVM": ModelWrapper("SVM", SVC(kernel='rbf', probability=True, random_state=42)),
         "KNN": ModelWrapper("KNN", KNeighborsClassifier(n_neighbors=5)),
