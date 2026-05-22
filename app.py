@@ -19,7 +19,14 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 import xgboost as xgb
-import lightgbm as lgb
+try:
+    import lightgbm as lgb
+    LIGHTGBM_OK = True
+except OSError:
+    lgb = None
+    LIGHTGBM_OK = False
+    import logging
+    logging.warning("libgomp.so.1 缺失，LightGBM 将被跳过")
 import catboost as cb
 import optuna
 from optuna.samplers import TPESampler
