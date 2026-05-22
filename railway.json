@@ -1,4 +1,8 @@
 {
+  "build": {
+    "builder": "nixpacks",
+    "nixPackages": ["libgomp"]
+  },
   "deploy": {
     "startCommand": "gunicorn app:app"
   }
